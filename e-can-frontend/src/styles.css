@@ -1,1 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* header-component */
+#navbarNav {
+    justify-content: flex-end;
+    margin-right: 10%;
+}
+
+.logo {
+    width: 100px;
+    height: 100px;
+    margin-left: 10%;
+}
