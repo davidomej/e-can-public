@@ -1,6 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
+@font-face {
+    font-family: 'Gruppo';
+    src: url('./assets/fonts/Gruppo-Regular.ttf');
+  }
+  @font-face {
+    font-family: 'Montserrat';
+    src: url('./assets/fonts/Montserrat-VariableFont_wght.ttf');
+  }
 
-/* header-component */
+
+/* COMMONS STYLES */
+.background-yellow {
+    background-color: rgb(245, 242, 213);
+    padding: 10%;
+}
+
+/* HEADER-COMPONENT */
 #navbarNav {
     justify-content: flex-end;
     margin-right: 10%;
@@ -10,4 +25,111 @@
     width: 100px;
     height: 100px;
     margin-left: 10%;
+}
+
+/* HOME-COMPONENT */
+.images {
+    width: 100%;
+    display: block;
+    margin: 0 auto;
+}
+
+@media screen and (max-width: 768px) {
+    .images {
+        width: 100%;
+        display: block;
+        margin: 0 auto;
+    }
+}
+
+#img_welcome {
+    margin-left: 10%
+}
+
+.parent {
+    display: grid;
+    grid-template-columns: 6fr 0.25fr 0.5fr 1fr 3fr repeat(2, 0.5fr);
+    grid-template-rows: repeat(2, 1fr) 2fr 0.5fr repeat(2, 0.25fr) 3fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    background-color: #e0eaf7;
+}
+
+.container {
+    grid-area: 1 / 1 / 8 / 8;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+}
+
+.welcome-image {
+    grid-area: 1 / 1 / 8 / 5;
+}
+
+.welcome-container {
+    grid-area: 2 / 5 / 7 / 8;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding-left: 20px;
+    background-color: rgba(235, 235, 75, 01);
+}
+
+.welcome-text {
+    grid-area: 3 / 3 / 4 / 8;
+    padding: 20px;
+}
+
+.welcome-text h1 {
+    color: white;
+    font-size: 78px;
+    text-align: center;
+}
+
+.welcome-text h1 span {
+    font-family: Raleway;
+    font-weight: 500;
+}
+
+.welcome-text h1 span u a {
+    text-decoration: none;
+    color: white;
+}
+
+.span-text {
+    grid-area: 5 / 3 / 6 / 8;
+    padding: 20px;
+}
+
+.span-text span {
+    text-transform: none;
+    letter-spacing: normal;
+    font-family: futura-lt-w01-light, futura-lt-w05-light, sans-serif;
+    font-weight: 400;
+    color: white;
+    text-align: center;
+    font-size: 32px;
+}
+
+.background-yellow h3 {
+    font-family: 'Gruppo';
+    line-height: 31.44px;
+    letter-spacing: 1px;
+    font-size: 24px;
+    color: rgb(13, 19, 26);
+    text-align: center;
+    margin-bottom: 5%;
+}
+
+.background-yellow span, .background-yellow p {
+    font-family: 'Montserrat';
+    line-height: 24px;
+    font-size: 16px;
+    text-align: center;
+    padding-bottom: 5%;
+}
+
+#div-subslogan{
+    margin: auto;
+    width: 70%;
 }
