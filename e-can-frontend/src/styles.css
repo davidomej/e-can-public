@@ -133,3 +133,20 @@
     margin: auto;
     width: 70%;
 }
+
+/* FOOTER COMPONENT */
+.content-footer{
+  background-color: #e0eaf7;
+  text-align: center;
+}
+
+.content-footer div a{
+    margin: 10px;
+    color:black;
+    font-weight: 200;
+}
+
+#footer-brand-name h4{
+    font-size: 36px;
+    font-weight: 100;
+}
