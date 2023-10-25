@@ -152,6 +152,26 @@
     font-weight: 100;
 }
 
+/* EFFECTS APEAR TEXT */
+@keyframes fadeIn {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+./* EFFECTS APEAR TEXT */
+@keyframes fadeIn {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+.fade-in {
+    animation: fadeIn ease 3s;
+    -webkit-animation: fadeIn ease 3s;
+    -moz-animation: fadeIn ease 3s;
+    -o-animation: fadeIn ease 3s;
+    -ms-animation: fadeIn ease 3s;
+}
+
 /* CONTACT STYLES */
 .contact-container{
     display: grid;
