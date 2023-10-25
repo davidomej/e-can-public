@@ -1,0 +1,38 @@
+.content{
+    margin-top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;      
+    flex-direction: column;
+}
+h3{
+    color: #0d131a;
+    font-family: DM Sans, sans-serif;
+    font-size: 20px;
+    letter-spacing: 1px;
+    text-align: start;
+    line-height: normal;
+    text:center;
+}
+#title{
+    text-align: center;
+}
+#subtitle{
+    margin-top: 3%;
+    text-align: center;
+}
+#subtitle span{
+    font-size: 24px;
+    line-height: 31.44px;
+    text-align: center;
+    font-weight: bold;
+}
+#body{
+    margin-top: 3%;
+    text-align: center;
+    width: 50%;
+}
+#body p{
+    text-align: start;
+}

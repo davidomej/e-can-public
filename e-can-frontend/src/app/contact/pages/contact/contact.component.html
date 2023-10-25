@@ -1,0 +1,49 @@
+<div class="block-layout block-layout--layout background-blue parent contact-container">
+    <div id="contact-form">
+        <div id="contact-title">
+            <h1>Contácto</h1>
+        </div>
+        <div id="contact-subtitle">
+            <h3>Solicita nuestros cursos vía email</h3>
+        </div>
+        <div id="contact-form">
+            <form [formGroup]="contactForm">
+                <div class="form-group">
+                    <label for="name">Nombre*</label>
+                    <input type="text" class="form-control" id="name" formControlName="name">
+                </div>
+                <div class="form-group">
+                    <label for="name">Apellidos*</label>
+                    <input type="text" class="form-control" id="last_name" formControlName="last_name">
+                </div>
+                <div class="form-group">
+                    <label for="email">Correo electrónico*</label>
+                    <input type="email" class="form-control" id="email" formControlName="email">
+                </div>
+                <div class="form-group">
+                    <label for="message">Mensaje</label>
+                    <textarea class="form-control" id="message" formControlName="message"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Enviar</button>
+            </form>
+        </div>
+    </div>
+    <div id="contact-image">
+        <img src="../../../../assets/images/contact-image.avif" alt="contact-image">
+    </div>
+</div>
+<div id="contact-info" class="block-layout block-layout--layout background-yellow">
+    <div class="info" id ="contact-email">
+        <h4>Correo electrónico</h4>
+        <span>e-can@prueba.com</span>
+    </div>
+    <div class="info" id ="contact-phone">
+        <h4>Teléfono</h4>
+        <span>123-456-789</span>
+    </div>
+    <div class="info" id ="contact-address">
+        <h4>Dirección</h4>
+        <span>Calle Canarias, 28</span><br>
+        <span>Las Palmas de Gran Canaria</span>
+    </div>
+</div>
