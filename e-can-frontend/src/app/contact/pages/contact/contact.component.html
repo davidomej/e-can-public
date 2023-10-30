@@ -7,7 +7,7 @@
             <h3>Solicita nuestros cursos vía email</h3>
         </div>
         <div id="contact-form" class="fade-in">
-            <form [formGroup]="contactForm">
+            <form [formGroup]="contactForm" (ngSubmit)="sendEmail()">
                 <div class="form-group">
                     <label for="name">Nombre*</label>
                     <input type="text" class="form-control" id="name" formControlName="name">
