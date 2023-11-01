@@ -6,6 +6,9 @@ const transporter = require('./emailConfig');
 const cors = require('cors');
 const sanitizeHtml = require('sanitize-html');
 
+app.use(cors());
+app.use(express.json());
+
 // BBDD config (MySQL)
 const db = mysql.createConnection({
   host: 'localhost',
@@ -15,9 +18,7 @@ const db = mysql.createConnection({
   port: 3306,
 });
 
-app.use(cors());
-app.use(express.json());
-
+// BBDD CONNECTION
 db.connect((err) => {
   if (err) {
     console.error('Error de conexión a la base de datos:', err);
@@ -36,12 +37,18 @@ app.get('/getUsers', (req,res) => {
   });
 });
 
+// SEND EMAIL ENDPOINT
 app.post('/sendEmail', (req, res) => {
   const dataForms = req.body;
   const sanitizedMessage = sanitizeHtml(dataForms.message, {
     allowedTags: ['b', 'i'],
     allowedAttributes: {},
   });
+
+  const response = {
+    message: 'Correo enviado con éxito',
+    info: {},
+  };
 
   const htmlBody = `
     <p>Hola Marcos, te avisamos de que <strong>${dataForms.name} ${dataForms.last_name}</strong>, ha solicitado información sobre nuestros cursos.</p>
@@ -59,10 +66,10 @@ app.post('/sendEmail', (req, res) => {
   }, (error, info) => {
     if (error) {
       console.error('Error al enviar el correo:', error);
-      res.status(500).send('Error al enviar el correo');
+      res.status(500).json({error: 'Error al enviar el correo'});
     } else {
       console.log('Correo enviado con éxito:', info.response);
-      res.status(200).send('Correo enviado con éxito');
+      res.status(200).json(response);
     }
   });
 });
