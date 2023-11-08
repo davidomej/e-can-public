@@ -1,17 +1,25 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { SelectComponent } from './select/select.component';
+import { RouterModule, Routes } from '@angular/router';
+import {MatCardModule} from '@angular/material/card';
 
-import { CoursesRoutingModule } from './courses-routing.module';
-import { ListComponent } from './pages/list/list.component';
+const routes: Routes = [
+  { path: 'select', component: SelectComponent }
+];
 
 
 @NgModule({
   declarations: [
-    ListComponent
+    SelectComponent
   ],
   imports: [
     CommonModule,
-    CoursesRoutingModule
+    RouterModule.forChild(routes),
+    MatCardModule
+  ],
+  exports: [
+    RouterModule
   ]
 })
 export class CoursesModule { }
