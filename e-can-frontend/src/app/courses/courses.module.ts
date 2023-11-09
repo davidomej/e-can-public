@@ -3,15 +3,17 @@ import { CommonModule } from '@angular/common';
 import { SelectComponent } from './select/select.component';
 import { RouterModule, Routes } from '@angular/router';
 import {MatCardModule} from '@angular/material/card';
+import { CoursesListComponent } from './courses-list/courses-list.component';
 
 const routes: Routes = [
-  { path: 'select', component: SelectComponent }
+  { path: 'select', component: SelectComponent },
 ];
 
 
 @NgModule({
   declarations: [
-    SelectComponent
+    SelectComponent,
+    CoursesListComponent
   ],
   imports: [
     CommonModule,
