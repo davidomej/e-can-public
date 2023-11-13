@@ -24,14 +24,18 @@ export class CoursesListComponent implements OnInit {
   }
 
   loadCourses(type: string): void {
-    if (type === 'online') {
-      this.coursesServices.getCoursesOnline().subscribe(data => {
-        this.courses = data;
-      });
-    } else if (type === 'blended') {
-      this.coursesServices.getCoursesBlended().subscribe(data => {
-        this.courses = data;
-      });
-    }
+    this.coursesServices.getAllCourses().subscribe(data => {
+      this.courses = data;
+    });
+
+    // if (type === 'online') {
+    //   this.coursesServices.getCoursesOnline().subscribe(data => {
+    //     this.courses = data;
+    //   });
+    // } else if (type === 'blended') {
+    //   this.coursesServices.getCoursesBlended().subscribe(data => {
+    //     this.courses = data;
+    //   });
+    // }
   }
 }
