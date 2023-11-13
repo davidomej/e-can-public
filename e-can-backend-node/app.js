@@ -1,40 +1,52 @@
 const express = require('express');
 const app = express();
-const mysql = require('mysql');
 const port = process.env.PORT || 3000;
 const transporter = require('./emailConfig');
 const cors = require('cors');
 const sanitizeHtml = require('sanitize-html');
+const firebase_admin = require('./firebase-admin-init');
+const bucket = firebase_admin.storage().bucket();
+
 
 app.use(cors());
 app.use(express.json());
 
-// BBDD config (MySQL)
-const db = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: '1234',
-  database: 'e-can',
-  port: 3306,
+// GET COURSES ENDPOINT
+const db = firebase_admin.firestore();
+
+function getAllCourses() {
+  return db.collection('courses').get()
+    .then((snapshot) => {
+      const courses = [];
+      snapshot.forEach((doc) => {
+        console.log(doc.data);
+        courses.push(doc.data());
+      });
+      return courses;
+    })
+    .catch((error) => {
+      console.log('Error al obtener los cursos:', error);
+    });
+}
+
+app.get('/api/all-courses', (req, res) => {
+  getAllCourses()
+    .then((courses) => {
+      res.status(200).json(courses);
+    })
+    .catch((error) => {
+      res.status(500).json({error: 'Error al obtener los cursos'});
+    });
 });
 
-// BBDD CONNECTION
-db.connect((err) => {
-  if (err) {
-    console.error('Error de conexión a la base de datos:', err);
-  } else {
-    console.log('Conexión exitosa a la base de datos MySQL');
-  }
-});
-
-app.get('/getUsers', (req,res) => {
-  db.query('SELECT * FROM users', (err, result) => {
-    if (err) {
-      console.error('Error al obtener los usuarios:', err);
-    } else {
-      res.send(result);
-    }
-  });
+app.get('/api/images', (req, res) => {
+  getImages()
+    .then((images) => {
+      res.status(200).json(images);
+    })
+    .catch((error) => {
+      res.status(500).json({error: 'Error al obtener las imágenes'});
+    });
 });
 
 // SEND EMAIL ENDPOINT
