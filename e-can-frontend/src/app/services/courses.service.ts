@@ -14,12 +14,4 @@ export class CoursesService {
   getAllCourses(): Observable<Course[]> {
     return this.http.get<Course[]>(`${environment.apiUrl}/api/all-courses`);
   }
-
-  getCoursesOnline(): Observable<Course[]> {
-    return this.http.get<Course[]>('api/courses/online');
-  }
-
-  getCoursesBlended(): Observable<Course[]> {
-    return this.http.get<Course[]>('api/courses/blended');
-  }
 }

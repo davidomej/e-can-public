@@ -52,17 +52,11 @@ export class CoursesListComponent implements OnInit {
 
   loadCourses(type: string): void {
     this.coursesServices.getAllCourses().subscribe(data => {
-      this.courses = data;
+      if (type) {
+        this.courses = data.filter(course => course.modality === type);
+      } else {
+        this.courses = data;
+      }
     });
-
-    // if (type === 'online') {
-    //   this.coursesServices.getCoursesOnline().subscribe(data => {
-    //     this.courses = data;
-    //   });
-    // } else if (type === 'blended') {
-    //   this.coursesServices.getCoursesBlended().subscribe(data => {
-    //     this.courses = data;
-    //   });
-    // }
   }
 }
