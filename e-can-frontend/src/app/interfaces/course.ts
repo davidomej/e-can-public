@@ -6,4 +6,10 @@ export interface Course {
     modality: string;
     category: string;
     price: number;
+    image: string;
+    deleted: boolean;
+    subsidised: boolean;
+    certification: string;
+    imageUrl?: string;
+    showDetails?: boolean;
 }
