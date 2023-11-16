@@ -1,14 +1,27 @@
-<div *ngFor="let course of courses">
-    <mat-card>
-        <mat-card-header>
-            <mat-card-title>{{ course.name }}</mat-card-title>
-        </mat-card-header>    
-        <mat-card-content>
-            <h3>{{ course.category }}</h3>
-            <h3>{{ course.description }}</h3>
-            <h3>{{ course.duration }}</h3>
-            <h3>{{ course.modality }}</h3>
-            <h3>{{ course.price }}</h3>
-        </mat-card-content>
-    </mat-card>
+<div class="cards-container">
+    <div *ngFor="let course of courses" [@expandsCards]="course.showDetails ? 'true' : 'false'">
+        <mat-card>
+            <mat-card-header>
+                <mat-card-title>{{ course.name }}</mat-card-title>
+            </mat-card-header>   
+            <div class="image-container">
+                <img *ngIf="course.imageUrl" [src]="course.imageUrl " alt="Imagen del curso">
+            </div> 
+            <mat-card-actions>
+                <button (click)="toggleDetails(course)" class="button-info">{{ course.showDetails ? '- Info' : '+ Info'}}</button>
+            </mat-card-actions>
+            <mat-card-content *ngIf="course.showDetails" class="card-content">
+            
+                <h3 class="description">{{ course.description }}</h3>
+                <hr>
+                <h3 class="duration" *ngIf="course.duration">Duración: </h3><span *ngIf="course.duration">{{ course.duration }} horas</span>
+                <h3 class="modality" *ngIf="course.modality">Modalidad: </h3><span *ngIf="course.modality">{{ course.modality }}</span>
+                <h3 class="price" *ngIf="course.price">Precio: </h3><span *ngIf="course.price">{{ course.price }} €</span>
+                <h3 class="subsidised" *ngIf="course.subsidised">Subvencionado: </h3><span *ngIf="course.subsidised">{{ course.subsidised ? "Si":"No" }}</span>
+                <h3 class="certification" *ngIf="course.certification">Certificación: </h3><span *ngIf="course.certification">{{ course.certification }}</span>
+                <h3 class="category" *ngIf="course.category">Categoria:</h3><span *ngIf="course.category">{{ course.category }}</span>
+                
+            </mat-card-content>
+        </mat-card>
+    </div>
 </div>

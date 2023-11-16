@@ -14,20 +14,41 @@ app.use(express.json());
 // GET COURSES ENDPOINT
 const db = firebase_admin.firestore();
 
-function getAllCourses() {
-  return db.collection('courses').get()
-    .then((snapshot) => {
-      const courses = [];
-      snapshot.forEach((doc) => {
-        console.log(doc.data);
-        courses.push(doc.data());
-      });
-      return courses;
-    })
-    .catch((error) => {
-      console.log('Error al obtener los cursos:', error);
-    });
+async function getAllCourses() {
+  try {
+    const snapshot = await db.collection('courses').get();
+    const courses = [];
+    for (const doc of snapshot.docs) {
+      const courseData = doc.data();
+      if (courseData.image) {
+        courseData.imageUrl = await getURLImages(courseData.image);
+      }
+      courses.push(courseData);
+      console.log(courseData.imageUrl);
+    }
+    return courses;
+  } catch (error) {
+    console.log('Error al obtener los cursos:', error);
+    throw error; 
+  }
 }
+
+async function getURLImages(fileName) {
+  const file = bucket.file(fileName);
+  const options = {
+    action: 'read',
+    expires: '03-17-2050',
+  };
+
+  try {
+    const signedUrls = await file.getSignedUrl(options);
+    return signedUrls[0];
+  } catch (error) {
+    console.error('Error al obtener la URL firmada:', error);
+    return null;
+  }
+}
+
 
 app.get('/api/all-courses', (req, res) => {
   getAllCourses()
