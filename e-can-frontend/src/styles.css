@@ -34,13 +34,7 @@
     margin: 0 auto;
 }
 
-@media screen and (max-width: 768px) {
-    .images {
-        width: 100%;
-        display: block;
-        margin: 0 auto;
-    }
-}
+
 
 #img_welcome {
     margin-left: 10%
@@ -84,6 +78,9 @@
     color: white;
     font-size: 78px;
     text-align: center;
+    line-height: 1.2;
+    margin: 0;
+    padding: 0;
 }
 
 .welcome-text h1 span {
@@ -91,7 +88,7 @@
     font-weight: 500;
 }
 
-.welcome-text h1 span u a {
+.welcome-text h1 span a {
     text-decoration: none;
     color: white;
 }
@@ -153,12 +150,6 @@
 }
 
 /* EFFECTS APEAR TEXT */
-@keyframes fadeIn {
-    0% {opacity: 0;}
-    100% {opacity: 1;}
-}
-
-./* EFFECTS APEAR TEXT */
 @keyframes fadeIn {
     0% {opacity: 0;}
     100% {opacity: 1;}
@@ -283,14 +274,103 @@
     }
 }
 
-
-
-/* Estilo para dispositivos móviles */
 @media screen and (max-width: 768px) {
-
+    .images {
+        width: 100%;
+        display: block;
+        margin: 0 auto;
+    }
     .parent {
         grid-template-columns: 1fr;
+        grid-template-rows: auto; 
         width: 100%;
+        overflow-x: hidden;
+    }
+
+    .welcome-container, .welcome-text{
+        max-width: 100%;
+        padding: 0 10px;
+        box-sizing: border-box;
+    }
+
+/* EN ESTA VERSIÓN SE VE LA IMAGEN Y LUEGO APARECE EL TEXTO DE BIENVENIDO SOBRE ESTA
+    .welcome-image{
+        grid-column: 1; 
+    } */
+
+    /* EN ESTA VERSIÓN SE MUESTRA LA IMAGEN A LA IZQUIERDA Y EL TEXTO A LA DERECHA */
+    .welcome-container{
+        max-width: 100%;
+        height: auto;
+    }
+
+    .welcome-text h1 {
+        font-size: 48px; /* Más pequeño en dispositivos móviles */
+        line-height: 1.2;
+        word-break: break-word; /* Rompe palabras largas que podrían causar desbordamiento */
+    }
+    .logo {
+        width: 50px; /* Ajusta el tamaño según sea necesario */
+        height: auto; /* Mantiene la relación de aspecto */
+    }
+    .social-icons__link svg {
+        width: 24px; /* Más pequeño en dispositivos móviles */
+        height: 24px;
+    }
+    #footer-brand-name h4 {
+        font-size: 20px; /* Tamaño de fuente más pequeño */
+    }
+    #contact-form {
+        margin-left: 10%;
+        margin-right: 10%;
+        width: 100%;
+        box-sizing: border-box; /* Asegura que el padding no aumente el ancho total */
+    }
+
+    /* Ajustes para los campos del formulario */
+    #contact-form .form-group {
+        width: 100%; /* Hace que los campos ocupen todo el ancho disponible */
+    }
+
+    /* Ajuste para el título y subtítulo */
+    #contact-title h1, #contact-subtitle h3 {
+        font-size: 24px; /* Tamaño de fuente más pequeño para móviles */
+        text-align: center; /* Centrar títulos en dispositivos móviles */
+        margin-left: 0; /* Eliminar el margen izquierdo */
+    }
+
+    /* Ajustes para la imagen de contacto */
+    #contact-image img {
+        max-width: 100%; /* Hace que la imagen sea completamente responsive */
+        height: auto; /* Mantiene la relación de aspecto */
+    }
+
+    #contact-info {
+        grid-template-columns: 1fr; /* Alineación de columna única para móviles */
+        padding: 0 5%; /* Añadir padding a los lados */
+        box-sizing: border-box; /* Asegura que el padding no aumente el ancho total */
+        margin: 0 auto; /* Centrar dentro del contenedor padre */
+        width: 90%; /* Ajustar el ancho */
+        max-width: 100%; /* Asegurar que no sobrepase el ancho de la pantalla */
+    }
+
+    #contact-info .info {
+        /* Ajustes para los elementos .info en dispositivos móviles */
+        margin: 10px 0; /* Espaciado vertical entre elementos */
+        padding: 0; /* Remover padding innecesario */
+        text-align: center; /* Centrar el texto */
+    }
+
+    #contact-address, #contact-email, #contact-phone {
+        /* Asegúrate de que estos elementos no se desborden */
+        overflow: hidden; /* Oculta cualquier contenido que se desborde */
+        word-wrap: break-word; /* Rompe palabras largas que podrían causar desbordamiento */
+    }
+
+    /* Botón de envío más pequeño para dispositivos móviles */
+    #contact-form .btn-primary {
+        font-size: 18px; /* Tamaño de fuente más pequeño */
+        padding: 10px 20px; /* Padding reducido */
     }
 
     #contact-container {
@@ -299,17 +379,15 @@
         width: 100%;
     }
 
-    #contact-form {
-        grid-area: 1 / 1 / 2 / 2; 
-    }
-
     #contact-image {
         grid-area: 2 / 1 / 3 / 2;
     }
 
-    #contact-info {
-        grid-area: 3 / 1 / 3 / 3;
+    #contact-form .form-group .form-control {
+        width: 100%; /* Hace que los campos ocupen todo el ancho disponible */
+        padding: 10px; /* Agrega un poco de padding para mejorar la apariencia */
     }
+
 }
 
 html, body { height: 100%; }
