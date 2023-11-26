@@ -37,17 +37,22 @@
     transform: scale(1.05);
   }
   
+
   .card img {
-    max-width: 100%; /* Asegura que la imagen no sobrepase el ancho del card */
-    max-height: 50%; /* Ajusta la altura máxima de la imagen si es necesario */
-    min-height: 100%;
-    margin-bottom: 20px; /* Espacio debajo de la imagen */
-    position: absolute; /* Posiciona la imagen absolutamente */
-    top: 60px; /* Ajusta este valor para cambiar la altura de la franja superior donde está el h1 */
+    width: 100%; /* Asegura que la imagen ocupe todo el ancho del card */
+    height: auto; /* Permite que la altura se ajuste para mantener la relación de aspecto */
+    object-fit: cover; /* Asegura que la imagen cubra el área disponible */
+    min-height: 100%; /* Establece una altura mínima para la imagen */
+    margin-bottom: 20px;
+    position: absolute;
+    z-index: 1;
     left: 0;
-    object-fit: cover; /* Asegura que la imagen cubra el espacio disponible sin distorsionarse */
-    z-index: 1; /* Asegura que la imagen quede detrás del título */
+    object-fit: cover;
+    top: 60px; 
+    /* Si la imagen todavía parece muy pequeña, puedes aumentar este valor */
   }
+
+
   
   /* Asegúrate de que el contenido del card se centre verticalmente */
   .mat-card-content {
@@ -61,12 +66,44 @@
 
   @media (max-width: 768px) {
     .cards-container {
-      flex-direction: column;
+        flex-direction: column;
+        padding: 20px; /* Añade padding para evitar que los elementos toquen los bordes */
+        margin: 0; /* Elimina cualquier margen que pueda causar desplazamiento horizontal */
     }
-  
+
+    .card-container {
+        width: 100%; /* Ajusta el ancho al 100% para dispositivos móviles */
+        max-width: 100%; /* Asegura que no se exceda el ancho de la pantalla */
+        margin: 20px 0; /* Ajusta el margen para dispositivos móviles */
+    }
+
     .card {
-      width: 80%; /* Ajusta el ancho del card para dispositivos más pequeños */
-      height: auto; /* Hace que la altura sea automática para mantener la proporción */
+        width: 100%; /* Ajusta el ancho del card */
+        height: 400px; /* Hace que la altura sea automática para mantener la proporción */
+        margin: 0; /* Elimina el margen adicional */
+        position: relative;
+    }
+
+    .card img {
+      position: absolute;
+      top: 50px; /* Alinea la imagen en la parte superior */
+      left: 0;
+      width: 100%; /* Asegura que la imagen ocupe todo el ancho del card */
+      height: 200px; /* Altura fija para la imagen */
+      object-fit: cover; /* Mantiene la relación de aspecto de la imagen */
+      z-index: 1;
+    }
+
+    .card h1 {
+      position: absolute;
+      left: 0;
+      top: 0; /* Ajusta para posicionar el título debajo de la imagen */
+      width: 100%;
+      text-align: center;
+      z-index: 2;
+      margin: 0;
+      background-color: white; /* Añade un fondo semitransparente al título */
+      padding: 10px 0; /* Añade un poco de espacio alrededor del texto */
     }
   }
   
