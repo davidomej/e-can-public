@@ -1,5 +1,6 @@
 export const environment = {
     production: true,
-    apiUrl: 'url de hostinger cuando lo subamos'
+    apiUrl: 'https://e-can.azurewebsites.net/',
+    apiEmail: 'https://e-can.azurewebsites.net/sendEmail'
   };
   
