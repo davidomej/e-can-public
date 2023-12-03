@@ -4,21 +4,24 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse {{ isNavbarCollapsed ? '' : 'show' }}" id="navbarNav">
+      <button type="button" class="close" aria-label="Close" (click)="toggleNavbar()">
+        <span aria-hidden="true">&times;</span>
+    </button>
       <ul class="navbar-nav ml-auto" id="navbarUl">
         <li class="nav-item">
-          <a class="nav-link" routerLink="/">Inicio</a>
+          <a class="nav-link" routerLink="/" (click)="toggleNavbar()">Inicio</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/about-us">Sobre nosotros</a>
+          <a class="nav-link" routerLink="/about-us" (click)="toggleNavbar()">Sobre nosotros</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/courses/select">Cursos</a>
+          <a class="nav-link" routerLink="/courses/select" (click)="toggleNavbar()">Cursos</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/contact">Contácto</a>
+          <a class="nav-link" routerLink="/contact" (click)="toggleNavbar()">Contácto</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/virtual-campus">Aula Virtual</a>
+          <a class="nav-link" routerLink="/virtual-campus" (click)="toggleNavbar()">Aula Virtual</a>
         </li>
       </ul>
     </div>

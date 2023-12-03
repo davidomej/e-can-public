@@ -11,7 +11,7 @@
 
 /* COMMONS STYLES */
 .background-yellow {
-    background-color: rgb(245, 242, 213);
+    background-color: rgb(249, 249, 249);
     padding: 10%;
 }
 
@@ -19,12 +19,17 @@
 #navbarNav {
     justify-content: flex-end;
     margin-right: 10%;
+    text-align: right;
 }
 
 .logo {
     width: 100px;
     height: 100px;
     margin-left: 10%;
+}
+
+.close {
+    display: none;
 }
 
 /* HOME-COMPONENT */
@@ -46,7 +51,7 @@
     grid-template-rows: repeat(2, 1fr) 2fr 0.5fr repeat(2, 0.25fr) 3fr;
     grid-column-gap: 0px;
     grid-row-gap: 0px;
-    background-color: #e0eaf7;
+    background-color: #fdfdfd;
 }
 
 .container {
@@ -149,6 +154,7 @@
     font-weight: 100;
 }
 
+
 /* EFFECTS APEAR TEXT */
 @keyframes fadeIn {
     0% {opacity: 0;}
@@ -168,7 +174,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
-    background-color: #e0eaf7;
+    background-color: #fafafa;
     padding: 5%;
     width: 100%;
 }
@@ -291,6 +297,46 @@
         max-width: 100%;
         padding: 0 10px;
         box-sizing: border-box;
+    }
+
+    .navbar-collapse {
+        position: fixed;
+        top: 0;
+        left: 100%; /* Cambiado de 'right' a 'left' */
+        width: 80%; /* Ancho del menú, puedes ajustarlo según tus necesidades */
+        max-width: 300px; /* Un máximo para que no sea demasiado grande en pantallas grandes */
+        height: 100%;
+        background-color: white;
+        transition: left 0.3s;
+        z-index: 1000; /* Asegúrate de que el menú esté por encima del contenido */
+    }
+
+    .navbar-collapse.show {
+        left: 20%; /* Cambiado para que se deslice desde la derecha */
+        /* Si cambias el ancho del menú, asegúrate de ajustar esto también */
+    }
+
+    body {
+        transition: margin-right 0.3s;
+    }
+
+    body.menu-active {
+        margin-right: -80%; /* Igual al ancho del menú */
+        /* Ajusta esto si cambias el ancho del menú */
+    }
+
+    .close {
+        position: absolute;
+        top: 0;
+        left: 0;
+        font-size: 30px;
+        color: #000; 
+        display: block;
+    }
+
+    .nav-link{
+        font-size: 1.2em;
+        margin: 15px
     }
 
 /* EN ESTA VERSIÓN SE VE LA IMAGEN Y LUEGO APARECE EL TEXTO DE BIENVENIDO SOBRE ESTA
