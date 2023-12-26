@@ -1,0 +1,20 @@
+<div class="card" *ngFor="let newsItem of newsList">
+    <mat-card class="news-card">
+        <mat-card-header>
+          <mat-card-title> {{ newsItem.title }} </mat-card-title>
+          <mat-card-subtitle> {{ newsItem.subtitle }}</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image [src]="newsItem.imageUrl" alt="">
+        <mat-card-content>
+          <p>
+            {{ newsItem.content }}
+          </p>
+        </mat-card-content>
+        <mat-card-actions class="card-actions">
+            <button mat-button (click)="incrementLikes(newsItem)" class="action-button"><mat-icon>thumb_up</mat-icon>
+                <span class="likes-count">{{ newsItem.likesCount }}</span>
+            </button>
+            <button mat-button (click)="share()" class="action-button"><mat-icon>share</mat-icon></button>
+        </mat-card-actions>
+      </mat-card>
+</div>
