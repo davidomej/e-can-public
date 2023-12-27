@@ -15,13 +15,18 @@ export class ShareModalComponent {
 
   share(platform: string):void {
     let url = '';
-    const newsUrl = encodeURIComponent(`https://tusitio.com/news/${this.data.id}`);
+    const newsUrl = `https://e-can.es/news#news-${this.data.id}`;
+    const baseUrl = encodeURIComponent('https://e-can.es/news');
+    const fragment = `#news-${this.data.id}`;
     switch (platform) {
       case 'facebook':
-        url = `https://www.facebook.com/sharer/sharer.php?u=${newsUrl}`;
+        url = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(newsUrl)}`;
         break;
       case 'twitter':
-        url = `https://twitter.com/intent/tweet?url=${newsUrl}`;
+        url = `https://twitter.com/intent/tweet?url=${encodeURIComponent(newsUrl)}`;
+        break;
+      case 'linkedin':
+        url = `https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(newsUrl)}`;
         break;
     }
     window.open(url, '_blank');

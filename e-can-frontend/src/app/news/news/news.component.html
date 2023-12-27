@@ -1,4 +1,4 @@
-<div class="card" *ngFor="let newsItem of newsList">
+<div class="card" *ngFor="let newsItem of newsList" [id]="'news-' + newsItem.id">
     <mat-card class="news-card">
         <mat-card-header>
           <mat-card-title> {{ newsItem.title }} </mat-card-title>

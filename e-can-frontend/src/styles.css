@@ -8,6 +8,7 @@
     src: url('./assets/fonts/Montserrat-VariableFont_wght.ttf');
   }
 
+  @import '@fortawesome/fontawesome-free/css/all.css';
 
 /* COMMONS STYLES */
 .background-yellow {
@@ -258,6 +259,10 @@
     border-radius: 50px;
     font-weight: bold;
 
+}
+
+.social-icons{
+    text-align: center;
 }
 
 /* Estilo para ordenadores */
