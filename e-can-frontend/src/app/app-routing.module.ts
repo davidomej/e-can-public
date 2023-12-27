@@ -8,6 +8,7 @@ const routes: Routes = [
   { path: 'about-us', loadChildren: () => import('./about-us/about-us.module').then(m => m.AboutUsModule) },
   { path: 'contact', loadChildren: () => import('./contact/contact.module').then(m => m.ContactModule) },
   { path: 'courses', loadChildren: () => import('./courses/courses.module').then(m => m.CoursesModule) },
+  { path: 'news', loadChildren: () => import('./news/news.module').then(m => m.NewsModule) },
   { path: 'courses/:type', component: CoursesListComponent },
 ];
 
