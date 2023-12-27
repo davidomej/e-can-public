@@ -1,0 +1,19 @@
+<h2 mat-dialog-title>Compartir Noticia</h2>
+<mat-dialog-content class="mat-typography">
+  <p>Selecciona la red social en la que deseas compartir:</p>
+  <div class="social-icons">
+    <!-- Ejemplos de botones para compartir, puedes agregar más -->
+    <button mat-icon-button (click)="share('facebook')">
+      <mat-icon>facebook</mat-icon>
+    </button>
+    <button mat-icon-button (click)="share('twitter')">
+      <i class="material-icons">twitter</i>
+    </button>
+    <button mat-icon-button (click)="share('whatsapp')">
+      <mat-icon>whatsapp</mat-icon>
+    </button>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancelar</button>
+</mat-dialog-actions>

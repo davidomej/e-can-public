@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { News } from 'src/app/interfaces/news';
 import { NewsService } from 'src/app/services/news.service';
+import { MatDialog } from '@angular/material/dialog';
+import { ShareModalComponent } from '../share-modal/share-modal.component';
 
 @Component({
   selector: 'app-news',
@@ -11,7 +13,8 @@ export class NewsComponent {
   likesCount = 0;
   newsList: News[] = [];
 
-  constructor(private newsService: NewsService) {}
+  constructor(private newsService: NewsService,
+              public dialog: MatDialog) {}
 
   ngOnInit(){
     this.newsService.getNews().subscribe((news) => {
@@ -29,7 +32,13 @@ export class NewsComponent {
       }
     }
 
-    share() {
-      
-    }
+    share(newsItem: News): void{
+      const dialogRef = this.dialog.open(ShareModalComponent, {
+        width: '250px',
+        data: newsItem
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
+  }
 }
