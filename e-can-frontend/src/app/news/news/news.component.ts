@@ -9,7 +9,6 @@ import { NewsService } from 'src/app/services/news.service';
 })
 export class NewsComponent {
   likesCount = 0;
-  hasLiked = false;
   newsList: News[] = [];
 
   constructor(private newsService: NewsService) {}
@@ -21,9 +20,12 @@ export class NewsComponent {
   }
 
   incrementLikes(newsItem: News) {
-      if (!this.hasLiked) {
+      if (!newsItem.hasLiked) {
           newsItem.likesCount++;
-          this.hasLiked = true;
+          newsItem.hasLiked = true;
+          if(newsItem.id){
+            this.newsService.updatelikes(newsItem.id, newsItem.likesCount).subscribe();
+          }
       }
     }
 

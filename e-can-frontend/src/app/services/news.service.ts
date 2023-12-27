@@ -14,4 +14,8 @@ export class NewsService {
   getNews(): Observable<News[]> {
     return this.http.get<News[]>(`${environment.apiUrl}/api/news`);
   }
+
+  updatelikes(newsId: String, likesCount: number): Observable<any> {
+    return this.http.post(`${environment.apiUrl}/api/news/${newsId}/likes`, { likesCount: likesCount });
+  }
 }
