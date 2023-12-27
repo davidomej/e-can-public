@@ -1,4 +1,4 @@
-<div class="card" *ngFor="let newsItem of newsList">
+<div class="card" *ngFor="let newsItem of newsList" [id]="'news-' + newsItem.id">
     <mat-card class="news-card">
         <mat-card-header>
           <mat-card-title> {{ newsItem.title }} </mat-card-title>
@@ -14,7 +14,7 @@
             <button mat-button (click)="incrementLikes(newsItem)" class="action-button"><mat-icon>thumb_up</mat-icon>
                 <span class="likes-count">{{ newsItem.likesCount }}</span>
             </button>
-            <button mat-button (click)="share()" class="action-button"><mat-icon>share</mat-icon></button>
+            <button mat-button (click)="share(newsItem)" class="action-button"><mat-icon>share</mat-icon></button>
         </mat-card-actions>
       </mat-card>
 </div>
